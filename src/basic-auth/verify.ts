@@ -11,10 +11,7 @@ export type VerifyBasicAuthOptions = {
   realm?: string
 }
 
-export async function verifyBasicAuth(
-  request: Request,
-  options: VerifyBasicAuthOptions
-): Promise<Response | null> {
+export async function verifyBasicAuth(request: Request, options: VerifyBasicAuthOptions): Promise<Response | null> {
   const { user: expectedUser, pass: expectedPass, realm } = options
   const header = request.headers.get('Authorization')
   const match = header?.match(BASIC_AUTH_HEADER_PATTERN)

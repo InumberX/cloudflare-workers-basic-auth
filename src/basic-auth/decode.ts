@@ -5,7 +5,7 @@ export function decodeBasicCredentials(b64: string): string | null {
     for (let i = 0; i < binary.length; i++) {
       bytes[i] = binary.charCodeAt(i)
     }
-    return new TextDecoder('utf-8', { fatal: true }).decode(bytes)
+    return new TextDecoder('utf-8', { fatal: true, ignoreBOM: false }).decode(bytes)
   } catch {
     return null
   }
