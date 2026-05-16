@@ -73,6 +73,16 @@ describe('unauthorizedResponse', () => {
     const response = unauthorizedResponse('back\\slash')
     expect(response.headers.get('WWW-Authenticate')).toBe('Basic realm="back\\\\slash", charset="UTF-8"')
   })
+
+  it('strips control characters from the realm value', () => {
+    const response = unauthorizedResponse('My\r\nApp\x00')
+    expect(response.headers.get('WWW-Authenticate')).toBe('Basic realm="MyApp", charset="UTF-8"')
+  })
+
+  it('falls back to the default realm if all characters are stripped', () => {
+    const response = unauthorizedResponse('\r\n\x00')
+    expect(response.headers.get('WWW-Authenticate')).toBe('Basic realm="Restricted", charset="UTF-8"')
+  })
 })
 
 describe('verifyBasicAuth', () => {
