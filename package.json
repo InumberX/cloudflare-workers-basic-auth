@@ -52,7 +52,9 @@
     "format": "oxfmt --check \"./{src,tests}/**/*.ts\"",
     "format-fix": "oxfmt --write \"./{src,tests}/**/*.ts\"",
     "pre-commit": "npm run typecheck && npm run lint-fix && npm run format-fix",
-    "prepublishOnly": "npm run typecheck && npm run lint && npm run test -- --run && npm run build"
+    "prepublishOnly": "npm run typecheck && npm run lint && npm run test -- --run && npm run build",
+    "upgrade": "npx npm-check-updates -u",
+    "upgrade-check": "npx npm-check-updates"
   },
   "peerDependencies": {
     "@cloudflare/workers-types": ">=4.0.0"
@@ -63,7 +65,7 @@
     }
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20260507.1",
+    "@cloudflare/workers-types": "^4.20260516.1",
     "oxfmt": "^0.48.0",
     "oxlint": "^1.63.0",
     "typescript": "6.0.3",
