@@ -1,0 +1,72 @@
+{
+  "name": "@inumberx/cloudflare-workers-basic-auth",
+  "version": "0.1.0",
+  "description": "Basic authentication gate for Cloudflare Workers with optional static-asset routing.",
+  "license": "MIT",
+  "author": "NiNE",
+  "homepage": "https://github.com/InumberX/cloudflare-workers-basic-auth",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InumberX/cloudflare-workers-basic-auth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/InumberX/cloudflare-workers-basic-auth/issues"
+  },
+  "keywords": [
+    "cloudflare",
+    "cloudflare-workers",
+    "workers",
+    "basic-auth",
+    "authentication",
+    "http",
+    "middleware"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "lint": "oxlint ./src ./tests --max-warnings=0",
+    "lint-fix": "oxlint --fix ./src ./tests",
+    "format": "oxfmt --check \"./{src,tests}/**/*.ts\"",
+    "format-fix": "oxfmt --write \"./{src,tests}/**/*.ts\"",
+    "pre-commit": "npm run typecheck && npm run lint-fix && npm run format-fix",
+    "prepublishOnly": "npm run typecheck && npm run lint && npm run test -- --run && npm run build"
+  },
+  "peerDependencies": {
+    "@cloudflare/workers-types": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@cloudflare/workers-types": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260507.1",
+    "oxfmt": "^0.48.0",
+    "oxlint": "^1.63.0",
+    "typescript": "6.0.3",
+    "vitest": "^4.1.5"
+  }
+}
