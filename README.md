@@ -142,6 +142,27 @@ npm run format        # oxfmt --check
 npm run build         # produces dist/
 ```
 
+## Releasing
+
+Publishing to npm is done manually from a local machine; CI handles verification and the GitHub Release. The split keeps the publish step protected by interactive 2FA while still automating the release notes.
+
+```sh
+# 1. Publish to npm from your machine (one-time `npm login` required beforehand)
+npm publish --access public        # 2FA OTP is prompted
+
+# 2. Tag the released commit and push the tag
+npm version patch                  # or `minor` / `major`. Bumps package.json, commits, and tags.
+git push --follow-tags
+```
+
+Pushing a `v*` tag triggers the `release` workflow, which:
+
+1. Runs `npm ci` / `typecheck` / `test` / `build` against the tagged commit.
+2. Verifies the tag matches `package.json` version (fails the workflow on mismatch).
+3. Creates a GitHub Release using `gh release create --generate-notes`; PR categories are configured in `.github/release.yml`.
+
+No npm token is stored in CI — publish is intentionally a local operation.
+
 ## License
 
 [MIT](./LICENSE) © NiNE
