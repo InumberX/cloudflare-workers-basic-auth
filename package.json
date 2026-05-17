@@ -1,6 +1,6 @@
 {
   "name": "@inumberx/cloudflare-workers-basic-auth",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Basic authentication gate for Cloudflare Workers with optional static-asset routing.",
   "license": "MIT",
   "author": "NiNE",
