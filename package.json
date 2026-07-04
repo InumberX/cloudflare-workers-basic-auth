@@ -1,6 +1,6 @@
 {
   "name": "@inumberx/cloudflare-workers-basic-auth",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Basic authentication gate for Cloudflare Workers with optional static-asset routing.",
   "license": "MIT",
   "author": "NiNE",
@@ -65,10 +65,10 @@
     }
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20260516.1",
-    "oxfmt": "^0.50.0",
-    "oxlint": "^1.65.0",
+    "@cloudflare/workers-types": "^4.20260701.1",
+    "oxfmt": "^0.57.0",
+    "oxlint": "^1.72.0",
     "typescript": "6.0.3",
-    "vitest": "^4.1.6"
+    "vitest": "^4.1.9"
   }
 }
