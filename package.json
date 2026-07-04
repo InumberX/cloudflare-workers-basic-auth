@@ -65,7 +65,7 @@
     }
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20260516.1",
+    "@cloudflare/workers-types": "^4.20260701.1",
     "oxfmt": "^0.50.0",
     "oxlint": "^1.65.0",
     "typescript": "6.0.3",
