@@ -5,6 +5,10 @@ on:
     branches: [main]
   pull_request:
 
+# 検査のみで書き込みは行わない。
+permissions:
+  contents: read
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
