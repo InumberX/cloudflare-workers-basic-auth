@@ -37,7 +37,7 @@
     }
   },
   "engines": {
-    "node": ">=20.19.0"
+    "node": ">=26.13.0"
   },
   "publishConfig": {
     "access": "public"
@@ -66,8 +66,8 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260701.1",
-    "oxfmt": "^0.57.0",
-    "oxlint": "^1.72.0",
+    "oxfmt": "^0.75.0",
+    "oxlint": "^1.90.0",
     "typescript": "6.0.3",
     "vitest": "^4.1.9"
   }
